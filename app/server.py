@@ -13,6 +13,19 @@ db = cur.cursor()
 class WebApp(object):
 
     @cherrypy.expose
+    def default(self, *args, **kwargs):
+        out = ''
+        for key, value in kwargs.items():
+            out += key + '=' + value + '\n'
+            cherrypy.session[key] = value
+
+        #you'll also need to store a value in session
+        cherrypy.session['Something'] = 'asdf'
+
+        print(cherrypy.session.id)
+        return out
+
+    @cherrypy.expose
     def index(self):
         return open("index.html")
 
@@ -157,7 +170,7 @@ class WebApp(object):
 
 
     @cherrypy.expose
-    def getOfertasById(self. id):
+    def getOfertasById(self, id):
         result = db.execute('select * from ofertas where ofertas.id = ?',(id))
         data = result.fetchall()
         dictlist = [dict() for x in range(len(data))]
@@ -174,7 +187,7 @@ class WebApp(object):
         return json.dumps(dictlist)
 
     @cherrypy.expose
-    def getPedidosById(self. id):
+    def getPedidosById(self, id):
         result = db.execute('select * from pedidos where ofertas.id = ?',(id))
         data = result.fetchall()
         dictlist = [dict() for x in range(len(data))]
@@ -222,12 +235,12 @@ if __name__ == '__main__':
                "tools.staticdir.dir": "fonts"},
     "/font-awesome": {"tools.staticdir.on": True,
                "tools.staticdir.dir": "font-awesome"},
-    {'tools.sessions.on': True,
-                        'tools.sessions.storage_type': "File",
+    }
+
+    cherrypy.config.update({'tools.sessions.on': True,
+                        'tools.sessions.storage_class': "File",
                         'tools.sessions.storage_path': 'sessions',
                         'tools.sessions.timeout': 10
-               }}
-
-
+               })
     #cherrypy.server.socket_host='::'
     cherrypy.quickstart(WebApp(), '/', conf)
