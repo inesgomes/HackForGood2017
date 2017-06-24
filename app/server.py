@@ -1,8 +1,12 @@
 import os, os.path
 import random
 import string
+import sqlite3 as sql
 
 import cherrypy
+
+cur = sql.connect("site_db.db", check_same_thread=False)
+db = cur.cursor()
 
 
 class WebApp(object):
