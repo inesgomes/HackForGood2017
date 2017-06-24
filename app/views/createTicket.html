@@ -19,7 +19,8 @@
     <!-- Custom styles for this template -->
     <link href="../css/style.css" rel="stylesheet">
 </head>
-<body class="">
+
+<body>
 
 <div id="wrapper">
 
@@ -45,16 +46,23 @@
                         IN+
                     </div>
                 </li>
-                <li>
-                    <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Dashboards</span> <span class="fa arrow"></span></a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="">Cenas</a></li>
-                        <li><a href="">Cenas v.2</a></li>
-                        <li><a href="">Cenas v.3</a></li>
-                        <li><a href="">Cenas v.4</a></li>
-                        <li><a href="">Cenas v.5 </a></li>
-                    </ul>
+                <li class="active">
+                    <a href="grid_options.html"><i class="fa fa-slideshare"></i> <span class="nav-label">Create help request</span></a>
                 </li>
+
+                <li>
+                    <a href="grid_options.html"><i class="fa fa-handshake-o"></i> <span class="nav-label">Create Offer</span></a>
+                </li>
+
+
+                <li>
+                    <a href="grid_options.html"><i class="fa fa-plus-square"></i> <span class="nav-label">See Offers</span></a>
+                </li>
+
+                <li>
+                    <a href="grid_options.html"><i class="fa fa-plus-square-o"></i> <span class="nav-label">See Help Requests </span></a>
+                </li>
+
             </ul>
 
         </div>
@@ -62,7 +70,7 @@
 
     <div id="page-wrapper" class="gray-bg">
         <div class="row border-bottom">
-            <nav class="navbar navbar-static-top  " role="navigation" style="margin-bottom: 0">
+            <nav class="navbar navbar-static-top white-bg" role="navigation" style="margin-bottom: 0">
                 <div class="navbar-header">
                     <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
                     <form role="search" class="navbar-form-custom" action="search_results.html">
@@ -182,85 +190,73 @@
             </nav>
         </div>
 
-
-        <div class="wrapper wrapper-content  animated fadeInRight">
+        <div class="wrapper wrapper-content">
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="ibox">
-                        <div class="ibox-content">
-                            <div class="row"> <h3 class="col-lg-6">Offer</h3>
-                                <a class="col-lg-6 text-right">See more</a> </div>
-                            <ul class="sortable-list connectList agile-list" id="todo">
-                                <li class="info-element" id="task1">
-                                    Simply dummy text of the printing and typesetting industry.
-                                    <div class="row">
-                                        <div class="agile-detail col-lg-2">
-                                            <strong>AUTOR</strong>
-                                        </div>
-                                        <div class="agile-detail col-lg-3">
-                                            <i class="fa fa-clock-o"></i> DATA
-                                        </div>
-                                        <div class="agile-detail col-lg-4">
-                                            <i class="fa fa-map-marker"></i> LOCALIZACAO
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
+                <div class="col-lg-12 animated fadeInRight">
+                    <div class="mail-box-header">
+                        <h2>
+                            Create
+                        </h2>
+                    </div>
+                    <div class="mail-box">
+
+
+                        <div class="mail-body">
+
+                            <form class="form-horizontal" method="get">
+                                <div class="form-group"><label class="col-sm-1 control-label">Title:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" value=""></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-1 control-label">Category:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" value=""></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-1 control-label">Localization:</label>
+                                    <div class="col-sm-10"><input type="text" class="form-control" value=""></div>
+                                </div>
+                                <div class="form-group"><label class="col-sm-1 control-label">Description:</label>
+
+                                    <div class="col-sm-10"><textarea class="form-control" rows="10" id="comment"></textarea></div>
+                                </div>
+                            </form>
+
                         </div>
+
+                        <div class="mail-body text-right tooltip-demo">
+                            <a href="mailbox.html" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-reply"></i> Create</a>
+                            <a href="mailbox.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> Cancel</a>
+                        </div>
+                        <div class="clearfix"></div>
+
+
+
                     </div>
                 </div>
-                <div class="col-lg-6">
-                    <div class="ibox">
-                        <div class="ibox-content">
-                            <div class="row"> <h3 class="col-lg-6">Help Request</h3>
-                                <a class="col-lg-6 text-right">See more</a> </div>
-                            <ul class="sortable-list connectList agile-list" id="inprogress">
-                                <li class="success-element" id="task9">
-                                    Quisque venenatis ante in porta suscipit.
-                                    <div class="row">
-                                        <div class="agile-detail col-lg-2">
-                                            <strong>AUTOR</strong>
-                                        </div>
-                                        <div class="agile-detail col-lg-3">
-                                            <i class="fa fa-clock-o"></i> DATA
-                                        </div>
-                                        <div class="agile-detail col-lg-4">
-                                            <i class="fa fa-map-marker"></i> LOCALIZACAO
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-
             </div>
-
-
-
-            <div class="footer">
-                <div class="pull-right">
-                    10GB of <strong>250GB</strong> Free.
-                </div>
-                <div>
-                    <strong>Copyright</strong> Example Company &copy; 2014-2017
-                </div>
-            </div>
-
         </div>
+        <div class="footer">
+            <div class="pull-right">
+                10GB of <strong>250GB</strong> Free.
+            </div>
+            <div>
+                <strong>Copyright</strong> Example Company &copy; 2014-2017
+            </div>
+        </div>
+
     </div>
+</div>
 
-    <!-- Mainly scripts -->
-    <script src="../js/jquery-3.1.1.min.js"></script>
-    <script src="../js/bootstrap.min.js"></script>
-    <script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+<!-- Mainly scripts -->
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/plugins/metisMenu/jquery.metisMenu.js"></script>
+<script src="../js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Custom and plugin javascript -->
-    <script src="../js/inspinia.js"></script>
-    <script src="../js/plugins/pace/pace.min.js"></script>
+<!-- Custom and plugin javascript -->
+<script src="../js/inspinia.js"></script>
+<script src="../js/plugins/pace/pace.min.js"></script>
 
-
+<!-- iCheck -->
+<script src="../js/plugins/iCheck/icheck.min.js"></script>
 </body>
 
 </html>
