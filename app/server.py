@@ -12,7 +12,7 @@ db = cur.cursor()
 class WebApp(object):
     @cherrypy.expose
     def index(self):
-        return open('views/index.html')
+        return open('index.html')
 
 
 @cherrypy.expose
@@ -27,20 +27,19 @@ class WebAppService(object):
 
 if __name__ == '__main__':
     conf = {
-        '/': {
-            'tools.sessions.on': True,
-            'tools.staticdir.root': os.path.abspath(os.getcwd())
-        },
-        '/generator': {
-            'request.dispatch': cherrypy.dispatch.MethodDispatcher(),
-            'tools.response_headers.on': True,
-            'tools.response_headers.headers': [('Content-Type', 'text/plain')],
-        },
-        '/static': {
-            'tools.staticdir.on': True,
-            'tools.staticdir.dir': './public'
-        }
-    }
+    "/": {"tools.staticdir.root": os.path.dirname(os.path.abspath(__file__))},
+    "/views": {"tools.staticdir.on": True,
+                "tools.staticdir.dir": "static"},
+    "/js": {"tools.staticdir.on": True,
+            "tools.staticdir.dir": "js"},
+    "/css": {"tools.staticdir.on": True,
+             "tools.staticdir.dir": "css"},
+    "/img": {"tools.staticdir.on": True,
+              "tools.staticdir.dir": "img"},
+    "/fonts": {"tools.staticdir.on": True,
+               "tools.staticdir.dir": "fonts"},
+    "/font-awesome": {"tools.staticdir.on": True,
+               "tools.staticdir.dir": "font-awesome"}}
 
     webapp = WebApp()
     cherrypy.quickstart(webapp, '/', conf)
