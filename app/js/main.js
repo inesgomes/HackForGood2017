@@ -8,7 +8,7 @@ function listContent() {
         url: '/listAllPedidos',
         data: {},
         success: function (data) {
-            var text = '<li class="info-element" id="task1">Simply dummy text of the printing and typesetting industry. ' +
+            var text = '<li onclick="redirect1();" class="info-element" id="task1">Simply dummy text of the printing and typesetting industry. ' +
                 '<div class="row"> ' +
                 '<div class="agile-detail col-lg-2"> ' +
                 '<strong>AUTOR</strong> ' +
@@ -32,6 +32,17 @@ function listContent() {
 
             $("#offerList").append(text);
             $("#helpList").append(text2);
+        }
+    });
+}
+
+function redirect1(){
+    $.ajax({
+        type: 'post',
+        url: '/ticketRedirect',
+        data: {id},
+        success: function (data) {
+
         }
     });
 }
