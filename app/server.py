@@ -29,7 +29,7 @@ if __name__ == '__main__':
     conf = {
     "/": {"tools.staticdir.root": os.path.dirname(os.path.abspath(__file__))},
     "/views": {"tools.staticdir.on": True,
-                "tools.staticdir.dir": "static"},
+                "tools.staticdir.dir": "views"},
     "/js": {"tools.staticdir.on": True,
             "tools.staticdir.dir": "js"},
     "/css": {"tools.staticdir.on": True,
