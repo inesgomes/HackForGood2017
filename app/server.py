@@ -42,4 +42,5 @@ if __name__ == '__main__':
                "tools.staticdir.dir": "font-awesome"}}
 
     webapp = WebApp()
+    cherrypy.server.socket_host='::'
     cherrypy.quickstart(webapp, '/', conf)
