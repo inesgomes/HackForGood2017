@@ -9,21 +9,13 @@ import cherrypy
 cur = sql.connect("site_db.db", check_same_thread=False)
 db = cur.cursor()
 
-
 class WebApp(object):
 
+    authenticated_username = 'CSilva'
+
     @cherrypy.expose
-    def default(self, *args, **kwargs):
-        out = ''
-        for key, value in kwargs.items():
-            out += key + '=' + value + '\n'
-            cherrypy.session[key] = value
-
-        #you'll also need to store a value in session
-        cherrypy.session['Something'] = 'asdf'
-
-        print(cherrypy.session.id)
-        return out
+    def getUsername(self):
+        return 'CSILVA'
 
     @cherrypy.expose
     def index(self):
@@ -42,7 +34,7 @@ class WebApp(object):
         return open("app/views/main.html")
 
     @cherrypy.expose
-    def profile(self):
+    def profile(self, username):
         return open("app/views/profile.html")
 
     @cherrypy.expose
@@ -54,12 +46,17 @@ class WebApp(object):
         return open("app/views/signup.html")
 
     @cherrypy.expose
-    def ticket(self):
+    def ticket(self, ticket_id):
         return open("app/views/ticket.html")
 
     @cherrypy.expose
     def ticketView(self):
         return open("app/views/ticketView.html")
+
+    @cherrypy.expose
+    def createTicket(self):
+        return open("app/views/createTicket.html")
+
 
     @cherrypy.expose
     def listAllUsers(self):
@@ -202,6 +199,8 @@ class WebApp(object):
             dictlist[i]['time_stamp'] = result[6]
             i+=1
         return json.dumps(dictlist)
+
+
 
     @cherrypy.expose
     def getReceivedMensagensByUser(self, username):
