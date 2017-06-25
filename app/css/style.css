@@ -7001,7 +7001,7 @@ body.landing-page {
   height: auto;
 }
 .landing-page .header-back {
-  height: 250px;
+  height: 350px;
   width: 100%;
 }
 .landing-page .header-back.one {
@@ -7009,6 +7009,9 @@ body.landing-page {
 }
 .landing-page .header-back.two {
   background: url('../img/landing/header_two.jpg') 50% 0 no-repeat;
+}
+.landing-page .header-back.mine {
+  background: url('../img/kidRefugees.jpg') 80% 40% no-repeat;
 }
 .landing-page .carousel {
   height: 470px;

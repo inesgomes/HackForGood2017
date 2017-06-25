@@ -44,7 +44,7 @@ class WebApp(object):
         return open("app/views/signup.html")
 
     @cherrypy.expose
-    def ticket(self):
+    def ticket(self, ticket_id, type):
         return open("app/views/ticket.html")
 
     @cherrypy.expose
