@@ -20,15 +20,15 @@
                             <div class="form-group"><label class="col-sm-1 control-label">Title:</label>
                                 <div class="col-sm-10"><input type="text" class="form-control" value=""></div>
                             </div>
-                            <div class="form-group"><label class="col-sm-1 control-label">Subject:</label>
+                            <div class="form-group"><label class="col-sm-1 control-label">Message:</label>
                                 <div class="col-sm-10"><textarea class="form-control" rows="10" id="comment"></textarea></div>
                             </div>
                         </form>
                     </div>
 
                     <div class="mail-body text-right tooltip-demo">
-                        <a href="mailbox.html" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-reply"></i> Send</a>
-                        <a href="mailbox.html" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> Discard</a>
+                        <a id="sendMessageButton" onclick="send()" class="btn btn-sm btn-primary" data-toggle="tooltip" data-placement="top" title="Send"><i class="fa fa-reply"></i> Send</a>
+                        <a onclick="window.history.back()" class="btn btn-white btn-sm" data-toggle="tooltip" data-placement="top" title="Discard email"><i class="fa fa-times"></i> Discard</a>
                     </div>
 
                 </div>
@@ -52,8 +52,8 @@
 <script src="../js/inspinia.js"></script>
 <script src="../js/plugins/pace/pace.min.js"></script>
 
-<!-- iCheck -->
-<script src="../js/plugins/iCheck/icheck.min.js"></script>
+<script src="../js/sendMessage.js"></script>
+<script src="../js/getUrlParam.js"></script>
 </body>
 
 </html>
