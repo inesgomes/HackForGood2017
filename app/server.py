@@ -148,7 +148,7 @@ class WebApp(object):
 
     @cherrypy.expose
     def getOffersByUsername(self, username):
-        result = db.execute('select * from ofertas where pedidos.username = ?',(username, username))
+        result = db.execute('select * from ofertas where pedidos.username = ?',(username))
         data = result.fetchall()
         dictlist = [dict() for x in range(len(data))]
         i = 0
@@ -163,24 +163,22 @@ class WebApp(object):
             i+=1
         return json.dumps(dictlist)
 
-        @cherrypy.expose
-        def getRequestsByUsername(self, username):
-            result = db.execute('select * from pedidos where pedidos.username = ?',(username, username))
-            data = result.fetchall()
-            dictlist = [dict() for x in range(len(data))]
-            i = 0
-            for result in data:
-                dictlist[i]['id'] = result[0]
-                dictlist[i]['username'] = result[1]
-                dictlist[i]['categoria'] = result[2]
-                dictlist[i]['titulo'] = result[3]
-                dictlist[i]['descricao'] = result[4]
-                dictlist[i]['localizacao'] = result[5]
-                dictlist[i]['time_stamp'] = result[6]
-                i+=1
-            return json.dumps(dictlist)
-
-
+    @cherrypy.expose
+    def getRequestsByUsername(self, username):
+        result = db.execute('select * from pedidos where pedidos.username = ?',(username))
+        data = result.fetchall()
+        dictlist = [dict() for x in range(len(data))]
+        i = 0
+        for result in data:
+            dictlist[i]['id'] = result[0]
+            dictlist[i]['username'] = result[1]
+            dictlist[i]['categoria'] = result[2]
+            dictlist[i]['titulo'] = result[3]
+            dictlist[i]['descricao'] = result[4]
+            dictlist[i]['localizacao'] = result[5]
+            dictlist[i]['time_stamp'] = result[6]
+            i+=1
+        return json.dumps(dictlist)
 
     @cherrypy.expose
     def getOfertasById(self, id):
@@ -201,7 +199,7 @@ class WebApp(object):
 
     @cherrypy.expose
     def getPedidosById(self, id):
-        result = db.execute('select * from pedidos where ofertas.id = ?',(id))
+        result = db.execute('select * from pedidos where pedidos.id = ?',(id))
         data = result.fetchall()
         dictlist = [dict() for x in range(len(data))]
         i = 0
@@ -215,8 +213,6 @@ class WebApp(object):
             dictlist[i]['time_stamp'] = result[6]
             i+=1
         return json.dumps(dictlist)
-
-
 
     @cherrypy.expose
     def getReceivedMensagensByUser(self, username):
