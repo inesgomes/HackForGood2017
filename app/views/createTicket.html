@@ -4,27 +4,40 @@
 <div id="wrapper">
 
     <script src="../js/sidebar.js"></script>
+
     <div class="wrapper wrapper-content">
         <div class="row">
             <div class="col-lg-12 animated fadeInRight">
                 <div class="mail-box-header">
-                    <h2>
-                        Create
-                    </h2>
+                    <h2 id="create"></h2>
                 </div>
                 <div class="mail-box">
-
-
+                    <div class="mail-box-header">
+                        <p>Please, fill in all the fields.</p>
+                    </div>
                     <div class="mail-body">
-
                         <form class="form-horizontal" method="get">
                             <div class="form-group"><label class="col-sm-1 control-label">Title:</label>
                                 <div class="col-sm-10"><input type="text" class="form-control" value=""
                                                               id="ticket_title"></div>
                             </div>
-                            <div class="form-group"><label class="col-sm-1 control-label">Category:</label>
-                                <div class="col-sm-10"><input type="text" class="form-control" value=""
-                                                              id="ticket_category"></div>
+                            <div class="form-group">
+                                <label class="col-sm-1 control-label">Category:</label>
+                                <div class="col-sm-3">
+                                    <div class="input-group-btn">
+                                        <button id="dropBut" class="col-lg-10 btn btn-white" type="button" aria-expanded="false">Categories</button>
+                                        <button data-toggle="dropdown" type="button" class="col-lg-2 btn btn-white"><span class="caret"></span></button>
+                                        <ul class="dropdown-menu col-lg-12">
+                                            <li><a onclick="change('All')">All</a></li>
+                                            <li><a onclick="change('Doubts')">Doubts</a></li>
+                                            <li><a onclick="change('Education')">Education</a></li>
+                                            <li><a onclick="change('Events')">Events</a></li>
+                                            <li><a onclick="change('Goods')">Goods</a></li>
+                                            <li><a onclick="change('Jobs')">Jobs</a></li>
+                                            <li><a onclick="change('Volunteer')">Volunteer</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
                             </div>
                             <div class="form-group"><label class="col-sm-1 control-label">Localization:</label>
                                 <div class="col-sm-10"><input type="text" class="form-control" value=""
@@ -35,7 +48,6 @@
                                                                  id="ticket_description"></textarea></div>
                             </div>
                         </form>
-
                     </div>
 
                     <div class="mail-body text-right tooltip-demo">
@@ -72,8 +84,10 @@
         ticket_type = getURLParameter('type');
         if (ticket_type == 'offer') {
             $("#offer_menu").attr('class', 'active');
+            $("#create").text("Create offer");
         } else {
             $("#request_menu").attr('class', 'active');
+            $("#create").text("Create help request");
         }
     })
 </script>
@@ -81,9 +95,10 @@
 <script>
     function createTicket() {
         title = $("#ticket_title").val();
-        category = $("#ticket_category").val();
+        category = $("#dropBut").text();
         localization = $("#ticket_localization").val();
         desc = $("#ticket_description").val();
+
         if (ticket_type == 'offer') {
             path = '/addOferta'
         } else {
@@ -102,6 +117,10 @@
             success: function (data) {
             }
         });
+    }
+
+    function change(category) {
+        $("#dropBut").text(category);
     }
 </script>
 
