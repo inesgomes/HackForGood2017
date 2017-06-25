@@ -4,9 +4,9 @@ document.write(
         '<ul class="nav metismenu" id="side-menu">' +
           '<li class="nav-header">'+
             '<div class="dropdown profile-element">' +
-              '<span><img alt="image" class="img-circle" src="../img/profile_small.jpg" /></span> ' +
+              '<span><img alt="image" class="img-circle" src="../img/silva.jpg" style="height: 12%;" /></span> ' +
               '<span class="clear"> ' +
-                '<span class="block m-t-xs"><strong class="font-bold"><a href="profile">Username</a></strong></span></span>'+
+                '<span class="block m-t-xs"><strong class="font-bold"><a href="profile">carlos_silva</a></strong></span></span>'+
               '</span>'+
             '</div>'+
           '</li> ' +
