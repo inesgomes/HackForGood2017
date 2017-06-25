@@ -11,8 +11,6 @@ db = cur.cursor()
 
 class WebApp(object):
 
-    authenticated_username = 'CSilva'
-
     @cherrypy.expose
     def getUsername(self):
         return 'CSILVA'
@@ -46,7 +44,7 @@ class WebApp(object):
         return open("app/views/signup.html")
 
     @cherrypy.expose
-    def ticket(self, ticket_id):
+    def ticket(self):
         return open("app/views/ticket.html")
 
     @cherrypy.expose
@@ -54,7 +52,7 @@ class WebApp(object):
         return open("app/views/ticketView.html")
 
     @cherrypy.expose
-    def createTicket(self):
+    def createTicket(self, type):
         return open("app/views/createTicket.html")
 
 
