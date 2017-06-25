@@ -4,15 +4,26 @@ window.onload = function () {
     var receptor = getURLParameter('receptor');
 
     $("#sendMessageButton").onclick = function send(id, type, receptor) {
+
+        var oferta = null;
+        var pedido = null;
+
+        if(type == "offer"){
+            oferta = id;
+        } else {
+            pedido = id;
+        }
+
         $.ajax({
             type: 'post',
-            url: '/addMensagem(recetor, dador, oferta, pedido, mensagem)',
-            data: {'recetor': receptor,
-                'email': $("#reg-email").val(),
-                'password': $("#reg-password").val(),
-                'telemovel': $("#reg-phone").val(),
-                'localizacao': $("#reg-city").val()},
+            url: '/addMensagem(sender, receiver, oferta, pedido, mensagem)',
+            data: {'sender': 'carlos_silva',
+                'receiver': receptor,
+                'oferta': oferta,
+                'pedido': pedido,
+                'mensagem': $("#comment").val()},
             success: function (data) {
+                alert($("#comment").val());
             }
         });
     }
