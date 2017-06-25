@@ -32,7 +32,7 @@ class WebApp(object):
         return open("app/views/main.html")
 
     @cherrypy.expose
-    def profile(self, username):
+    def profile(self):
         return open("app/views/profile.html")
 
     @cherrypy.expose
@@ -147,8 +147,8 @@ class WebApp(object):
         cur.commit()
 
     @cherrypy.expose
-    def getEventsByUsername(self, username):
-        result = db.execute('select * from pedidos where pedidos.username = ? join select * from ofertas where ofertas.username = ?',(username, username))
+    def getOffersByUsername(self, username):
+        result = db.execute('select * from ofertas where pedidos.username = ?',(username, username))
         data = result.fetchall()
         dictlist = [dict() for x in range(len(data))]
         i = 0
@@ -162,6 +162,24 @@ class WebApp(object):
             dictlist[i]['time_stamp'] = result[6]
             i+=1
         return json.dumps(dictlist)
+
+        @cherrypy.expose
+        def getRequestsByUsername(self, username):
+            result = db.execute('select * from pedidos where pedidos.username = ?',(username, username))
+            data = result.fetchall()
+            dictlist = [dict() for x in range(len(data))]
+            i = 0
+            for result in data:
+                dictlist[i]['id'] = result[0]
+                dictlist[i]['username'] = result[1]
+                dictlist[i]['categoria'] = result[2]
+                dictlist[i]['titulo'] = result[3]
+                dictlist[i]['descricao'] = result[4]
+                dictlist[i]['localizacao'] = result[5]
+                dictlist[i]['time_stamp'] = result[6]
+                i+=1
+            return json.dumps(dictlist)
+
 
 
     @cherrypy.expose
