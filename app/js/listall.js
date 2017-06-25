@@ -14,7 +14,7 @@ function listContentOffer() {
         data: {},
         success: function (data) {
             data = JSON.parse(data);
-            listContent(data);
+            listContent(data, "Match");
         }
     });
 }
@@ -26,12 +26,12 @@ function listContentRequest(){
         data: {},
         success: function (data) {
             data = JSON.parse(data);
-            listContent(data);
+            listContent(data, "Help");
         }
     });
 }
 
-function listContent(data){
+function listContent(data, button){
     for (var i = 0; i < data.length; i++){
         var text = '' +
             '<div class="ibox">' +
@@ -44,7 +44,7 @@ function listContent(data){
             '<span class="text-muted">' +
             '<i class="fa fa-clock-o"></i>'+data[i].time_stamp+'<i class="fa fa-map-marker"></i>'+data[i].localizacao+'</span> </div>' +
             '<p>'+data[i].descricao+'</p>' +
-            '<div class="text-right"> <button class="btn btn-white btn-xs" type="button">Match/help</button></div>' +
+            '<div class="text-right"> <button class="btn btn-white btn-xs" type="button">'+button+'</button></div>' +
             '</div> </div>';
         if(i%3 == 0){
             $("#col1").append(text);
