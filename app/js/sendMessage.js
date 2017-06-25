@@ -1,10 +1,8 @@
-window.onload = function () {
+
+function send() {
     var id = getURLParameter('id');
     var type = getURLParameter('type');
     var receptor = getURLParameter('receptor');
-
-    $("#sendMessageButton").onclick = function send(id, type, receptor) {
-
         var oferta = null;
         var pedido = null;
 
@@ -16,15 +14,14 @@ window.onload = function () {
 
         $.ajax({
             type: 'post',
-            url: '/addMensagem(sender, receiver, oferta, pedido, mensagem)',
+            url: '/addMensagem',
             data: {'sender': 'carlos_silva',
                 'receiver': receptor,
                 'oferta': oferta,
                 'pedido': pedido,
                 'mensagem': $("#comment").val()},
             success: function (data) {
-                alert($("#comment").val());
             }
         });
     }
-}
+
