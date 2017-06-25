@@ -36,7 +36,7 @@ class WebApp(object):
         return open("app/views/profile.html")
 
     @cherrypy.expose
-    def sendMessage(self, id, type):
+    def sendMessage(self, id, type, receptor):
         return open("app/views/sendMessage.html")
 
     @cherrypy.expose
