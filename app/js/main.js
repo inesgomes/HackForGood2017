@@ -33,7 +33,7 @@ function listText(data, color){
     var text = '';
 
     for(var i = 0; i < data.length; i++) {
-        text = text.concat('<li onclick="redirectOffer('+data[i].id+');" class="'+color+'-element" id="task1">'+
+        text = text.concat('<li onclick="redirect'+color+'('+data[i].id+');" class="'+color+'-element" id="task1">'+
             '<div class="row"> <div class="col-lg-6">'+data[i].titulo+'</div> ' +
             '<div class="agile-detail col-lg-6"> ' +
             '<strong>'+data[i].username+'</strong> ' +
@@ -49,10 +49,10 @@ function listText(data, color){
     return text;
 }
 
-function redirectOffer(id){
+function redirectinfo(id){
     window.location.href='/ticket?ticket_id='+id+'&type=offer';
 }
 
-function redirectRequest(id){
+function redirectsuccess(id){
     window.location.href='/ticket?ticket_id='+id+'&type=request';
 }
