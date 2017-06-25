@@ -14,7 +14,7 @@ function listContentOffer() {
         data: {},
         success: function (data) {
             data = JSON.parse(data);
-            listContent(data);
+            listContent(data, "Match");
         }
     });
 }
@@ -26,17 +26,14 @@ function listContentRequest(){
         data: {},
         success: function (data) {
             data = JSON.parse(data);
-            listContent(data);
+            listContent(data, "Help");
         }
     });
 }
 
-function listContent(data){
-    var col1 = "";
-    var col2 = "";
-    var col3 = "";
+function listContent(data, button){
     for (var i = 0; i < data.length; i++){
-        var text = '<div class="col-lg-4">' +
+        var text = '' +
             '<div class="ibox">' +
             '<div class="ibox-content">' +
             '<a href="article.html" class="btn-link">' +
@@ -47,17 +44,22 @@ function listContent(data){
             '<span class="text-muted">' +
             '<i class="fa fa-clock-o"></i>'+data[i].time_stamp+'<i class="fa fa-map-marker"></i>'+data[i].localizacao+'</span> </div>' +
             '<p>'+data[i].descricao+'</p>' +
-            '<div class="text-right"> <button class="btn btn-white btn-xs" type="button">Match/help</button></div>' +
-            '</div> </div> </div>';
+            '<div class="text-right"> <button onclick="sendMessage'+button+'('+data[i].id+')" class="btn btn-white btn-xs" type="button">'+button+'</button></div>' +
+            '</div> </div>';
         if(i%3 == 0){
-            col1 = col1.concat(text);
+            $("#col1").append(text);
         } else if (i%3 == 1) {
-            col2 = col2.concat(text);
+            $("#col2").append(text);
         } else if (i%3 == 2){
-            col3 = col3.concat(text);
+            $("#col3").append(text);
         }
     }
-    $("#row-ticket").append(col1);
-    $("#row-ticket").append(col2);
-    $("#row-ticket").append(col3);
+}
+
+function sendMessageMatch(id){
+        window.location = 'sendMessage?id='+id+'&type=offer';
+}
+
+function sendMessageHelp(id){
+         window.location = 'sendMessage?id='+id+'&type=request';
 }
