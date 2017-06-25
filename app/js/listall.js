@@ -44,7 +44,7 @@ function listContent(data, button){
             '<span class="text-muted">' +
             '<i class="fa fa-clock-o"></i>'+data[i].time_stamp+'<i class="fa fa-map-marker"></i>'+data[i].localizacao+'</span> </div>' +
             '<p>'+data[i].descricao+'</p>' +
-            '<div class="text-right"> <button class="btn btn-white btn-xs" type="button">'+button+'</button></div>' +
+            '<div class="text-right"> <button onclick="sendMessage'+button+'('+data[i].id+')" class="btn btn-white btn-xs" type="button">'+button+'</button></div>' +
             '</div> </div>';
         if(i%3 == 0){
             $("#col1").append(text);
@@ -54,4 +54,12 @@ function listContent(data, button){
             $("#col3").append(text);
         }
     }
+}
+
+function sendMessageMatch(id){
+        window.location.href = 'sendMessage?id='+id+'&type=offer';
+}
+
+function sendMessageHelp(id){
+    window.location.href = 'sendMessage?id='+id+'&type=request';
 }
