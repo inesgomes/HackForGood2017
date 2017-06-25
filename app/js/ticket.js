@@ -5,7 +5,6 @@ window.onload = function () {
     } else if(ticket == "request") {
         listContentRequest();
     }
-
 }
 
 
