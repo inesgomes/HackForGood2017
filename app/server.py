@@ -20,7 +20,7 @@ class WebApp(object):
         return open("index.html")
 
     @cherrypy.expose
-    def listall(self):
+    def listall(self,type):
         return open("app/views/listall.html")
 
     @cherrypy.expose
