@@ -19,24 +19,25 @@
                         <input type="email" placeholder="Enter location to search" id="mylocation"
                                class="form-control">
                     </div>
-                    <div class="m-b col-lg-3">
-                        <div class="input-group-btn">
-                            <button data-toggle="dropdown" class="col-lg-12 btn btn-white" type="button" aria-expanded="false">
-                                Categories <span class="caret"></span></button>
-                            <ul class="dropdown-menu">
-                                <li><a href="#">All</a></li>
-                                <li><a href="#">Doubts</a></li>
-                                <li><a href="#">Education</a></li>
-                                <li><a href="#">Events</a></li>
-                                <li><a href="#">Jobs</a></li>
-                                <li><a href="#">Volunteer</a></li>
-                            </ul>
+
+                        <div class="col-lg-3">
+                            <div class="input-group-btn">
+                                <button id="dropBut" class="col-lg-10 btn btn-white" type="button" aria-expanded="false">Categories</button>
+                                <button data-toggle="dropdown" type="button" class="col-lg-2 btn btn-white"><span class="caret"></span></button>
+                                <ul class="dropdown-menu col-lg-12">
+                                    <li><a onclick="change('All')">All</a></li>
+                                    <li><a onclick="change('Doubts')">Doubts</a></li>
+                                    <li><a onclick="change('Education')">Education</a></li>
+                                    <li><a onclick="change('Events')">Events</a></li>
+                                    <li><a onclick="change('Goods')">Goods</a></li>
+                                    <li><a onclick="change('Jobs')">Jobs</a></li>
+                                    <li><a onclick="change('Volunteer')">Volunteer</a></li>
+                                </ul>
+                            </div>
                         </div>
-                    </div>
+
                     <button type="button" class="col-lg-1 btn btn-success">Go!</button>
                 </form>
-
-
 
             </div>
         </div>
@@ -57,7 +58,11 @@
 
 
 
-
+<script>
+    function change(category) {
+        $("#dropBut").text(category);
+    }
+</script>
 
 <!-- Mainly scripts -->
 <script src="../js/jquery-3.1.1.min.js"></script>

@@ -14,7 +14,7 @@ function listContentOffer() {
         data: {},
         success: function (data) {
             data = JSON.parse(data);
-            listContent(data, "offer");
+            listContent(data, "Contact");
         }
     });
 }
@@ -26,7 +26,7 @@ function listContentRequest(){
         data: {},
         success: function (data) {
             data = JSON.parse(data);
-            listContent(data, "request");
+            listContent(data, "Contact");
         }
     });
 }
