@@ -8,6 +8,8 @@ function listContent() {
         url: '/listAllPedidos',
         data: {},
         success: function (data) {
+            data = JSON.parse(data);
+            alert(data);
             var text = '<li onclick="redirectOffer(1);" class="info-element" id="task1">Simply dummy text of the printing and typesetting industry. ' +
                 '<div class="row"> ' +
                 '<div class="agile-detail col-lg-2"> ' +
