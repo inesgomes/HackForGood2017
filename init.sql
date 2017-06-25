@@ -8,7 +8,7 @@ create table users(
 );
 
 create table pedidos(
-	id SERIAL PRIMARY KEY,
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	username text REFERENCES users (username),
 	categoria text,
 	titulo text,
@@ -18,7 +18,7 @@ create table pedidos(
 );
 
 create table ofertas(
-	id SERIAL PRIMARY KEY,
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	username text REFERENCES users (username),
 	categoria text,
 	titulo text,
@@ -28,7 +28,7 @@ create table ofertas(
 );
 
 create table mensagens(
-	id serial primary key,
+	id INTEGER PRIMARY KEY AUTOINCREMENT,
 	sender text references users(username),
 	receiver text references users(username),
 	oferta serial references ofertas(id),
