@@ -113,8 +113,8 @@ class WebApp(object):
         i = 0
         for result in data:
             dictlist[i]['id'] = result[0]
-            dictlist[i]['recetor'] = result[1]
-            dictlist[i]['dador'] = result[2]
+            dictlist[i]['sender'] = result[1]
+            dictlist[i]['receiver'] = result[2]
             dictlist[i]['oferta'] = result[3]
             dictlist[i]['pedido'] = result[4]
             dictlist[i]['time_stamp'] = result[5]
@@ -141,9 +141,9 @@ class WebApp(object):
         cur.commit()
 
     @cherrypy.expose
-    def addMensagem(self, recetor, dador, oferta, pedido, mensagem):
-        db.execute('insert into mensagens(recetor, dador, oferta, pedido, mensagem) values (?,?,?,?,?)',
-        (recetor, dador, oferta, pedido, mensagem))
+    def addMensagem(self, sender, receiver, oferta, pedido, mensagem):
+        db.execute('insert into mensagens(sender, receiver, oferta, pedido, mensagem) values (?,?,?,?,?)',
+        (sender, receiver, oferta, pedido, mensagem))
         cur.commit()
 
     @cherrypy.expose
