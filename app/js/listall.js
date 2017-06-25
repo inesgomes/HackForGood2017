@@ -57,9 +57,9 @@ function listContent(data, button){
 }
 
 function sendMessageMatch(id){
-        window.location.href = 'sendMessage?id='+id+'&type=offer';
+        window.location = 'sendMessage?id='+id+'&type=offer';
 }
 
 function sendMessageHelp(id){
-    window.location.href = 'sendMessage?id='+id+'&type=request';
+         window.location = 'sendMessage?id='+id+'&type=request';
 }
